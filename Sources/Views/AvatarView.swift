@@ -72,7 +72,7 @@ open class AvatarView: UIImageView {
     // MARK: - Initializers
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        prepareView()
+        self.commonInit()
     }
 
     convenience public init() {
@@ -153,7 +153,13 @@ open class AvatarView: UIImageView {
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+//        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        commonInit()
+    }
+    
+    func commonInit() -> Void {
+        self.prepareView()
     }
 
     // MARK: - Internal methods

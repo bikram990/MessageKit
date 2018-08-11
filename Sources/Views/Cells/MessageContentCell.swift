@@ -65,12 +65,18 @@ open class MessageContentCell: MessageCollectionViewCell {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
-        setupSubviews()
+        self.commonInit()
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+//        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        self.commonInit()
+    }
+    
+    func commonInit() -> Void {
+        contentView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        setupSubviews()
     }
 
     open func setupSubviews() {

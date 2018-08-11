@@ -37,17 +37,22 @@ open class PlayButtonView: UIView {
 
     public override init(frame: CGRect) {
         super.init(frame: frame)
-
+        self.commonInit()
+    }
+    
+    func commonInit() -> Void {
         setupSubviews()
         setupConstraints()
-
+        
         triangleView.clipsToBounds = true
         triangleView.backgroundColor = .black
         backgroundColor = .playButtonLightGray
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+//        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        self.commonInit()
     }
 
     // MARK: - Methods

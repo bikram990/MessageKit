@@ -46,17 +46,23 @@ open class MessagesCollectionView: UICollectionView {
 
     public override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: layout)
-        backgroundColor = .white
-        registerReusableViews()
-        setupGestureRecognizers()
+        self.commonInit()
     }
     
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+//        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        self.commonInit()
     }
 
     public convenience init() {
         self.init(frame: .zero, collectionViewLayout: MessagesCollectionViewFlowLayout())
+    }
+    
+    func commonInit() -> Void {
+        backgroundColor = .white
+        registerReusableViews()
+        setupGestureRecognizers()
     }
 
     // MARK: - Methods

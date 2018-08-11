@@ -66,18 +66,23 @@ open class MessagesCollectionViewFlowLayout: UICollectionViewFlowLayout {
 
     public override init() {
         super.init()
-
-        sectionInset = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
-
-        NotificationCenter.default.addObserver(self, selector: #selector(MessagesCollectionViewFlowLayout.handleOrientationChange(_:)), name: .UIDeviceOrientationDidChange, object: nil)
+        self.commonInit()
     }
 
     required public init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+//        fatalError("init(coder:) has not been implemented")
+        super.init(coder: aDecoder)
+        self.commonInit()
     }
 
     deinit {
         NotificationCenter.default.removeObserver(self)
+    }
+    
+    func commonInit() -> Void {
+        sectionInset = UIEdgeInsets(top: 4, left: 8, bottom: 4, right: 8)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(MessagesCollectionViewFlowLayout.handleOrientationChange(_:)), name: .UIDeviceOrientationDidChange, object: nil)
     }
 
     // MARK: - Attributes
